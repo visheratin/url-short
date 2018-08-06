@@ -1,0 +1,8 @@
+{
+    "port": 37485,
+	"storageType": "filesystem",
+	"storagePath": "./data",
+	"logPath": ".",
+	"prefix": "http://ya.ru/",
+	"codeLength": 6
+}
