@@ -8,7 +8,10 @@ such situations usually do not happen in production).
 Microservice uses TCP connections for receiving and sending data to eliminate overheads of HTTP.
 
 Microservice permanently stores all its data on the local disk, but this can be easily changed through creating new type  
-of storage by implementing a **Storage** interface.
+of storage by implementing a **Storage** interface. Depending on requirements for permanent data storing, saving the input-code 
+pairs can be done in goroutines (if the saving fails code will still be returned to the client, but after service restart it will not 
+be available) or the code can be not saved permanently at all (pass **nil** into **Converter** constructor, execution will be faster 
+by several orders of magnitude).
 
 In order to find how fast the service is, there are three benchmarks for it. Results of their execution on notebook with 
 Core i7-7700HQ, SSD hard drive and Windows OS:
